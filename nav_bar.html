@@ -1,0 +1,49 @@
+<style>
+        ul.nav_main{
+            margin-left: 0px;
+            padding-left: 0px;
+            list-style: none;
+            display: flex;
+            justify-content: left;
+        }
+        ul.nav_main a {
+            display: block;
+            width: 8em;
+            padding:16px;
+            margin: 0 0px;
+            text-decoration: none;
+            color: #333;
+            text-align: center;
+            border-block-end: 3px solid #aaaaaa
+
+        }
+        ul.nav_main a:hover{
+            border-block-end: 3px solid #074ee8;
+        }
+</style>
+<script>
+    // Функция для установки куки
+    function setCookie(name, value) {
+        document.cookie = name + "=" + value; path=/";
+    }
+
+    // Установка куки 'page' с именем текущей вкладки
+    function setPageCookie(page) {
+        setCookie('page', page);
+    }
+
+    // Сохраняем URL текущей страницы в куки 'page', если URL вводится вручную
+    window.onload = function() {
+        const urlHash = window.location.hash.substring(1);
+        if (urlHash) {
+            setPageCookie(urlHash);
+        }
+    };
+</script>
+<ul class="nav_main">
+    <li><a>Дашборд</a></li>
+    <li><a>Заявки</a></li>
+    <li><a href="/stations" onclick="setPageCookie('stations')">Станции</a></li>
+    <li><a href="/settings" onclick="setPageCookie('settings')">Настройки</a></li>
+    <li><a href="/logout" onclick="setPageCookie('logout')">Выйти</a></li>
+</ul>
